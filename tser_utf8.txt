@@ -1,0 +1,81 @@
+﻿node.exe : C:\Users\marke\PythonSc
+ripts\Pos_UFG\Aula_01_Sandeco\Agen
+teSkillClaw\mordomoclaw\node_modul
+es\ts-node\src\index.ts:859
+No linha:1 caractere:1
++ & "C:\Program 
+Files\nodejs/node.exe" 
+"C:\Users\marke\AppData\Roaming\ 
+...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~
+    + CategoryInfo          : Not 
+   Specified: (C:\Users\marke\..  
+  .rc\index.ts:859:String) [],    
+ RemoteException
+    + FullyQualifiedErrorId : Nat 
+   iveCommandError
+ 
+    return new 
+TSError(diagnosticText, 
+diagnosticCodes, diagnostics);
+           ^
+TSError: Ô¿» Unable to compile 
+TypeScript:
+src/utils/PDFHandler.ts(2,17): 
+error TS7016: Could not find a 
+declaration file for module 
+'pdf-parse'. 'C:/Users/marke/Pytho
+nScripts/Pos_UFG/Aula_01_Sandeco/A
+genteSkillClaw/mordomoclaw/node_mo
+dules/pdf-parse/index.js' 
+implicitly has an 'any' type.
+  Try `npm i --save-dev 
+@types/pdf-parse` if it exists or 
+add a new declaration (.d.ts) 
+file containing `declare module 
+'pdf-parse';`
+
+    at createTSError (C:\Users\mar
+ke\PythonScripts\Pos_UFG\Aula_01_S
+andeco\AgenteSkillClaw\mordomoclaw
+\node_modules\ts-node\src\index.ts
+:859:12)
+    at reportTSError (C:\Users\mar
+ke\PythonScripts\Pos_UFG\Aula_01_S
+andeco\AgenteSkillClaw\mordomoclaw
+\node_modules\ts-node\src\index.ts
+:863:19)
+    at getOutput (C:\Users\marke\P
+ythonScripts\Pos_UFG\Aula_01_Sande
+co\AgenteSkillClaw\mordomoclaw\nod
+e_modules\ts-node\src\index.ts:107
+7:36)
+    at Object.compile (C:\Users\ma
+rke\PythonScripts\Pos_UFG\Aula_01_
+Sandeco\AgenteSkillClaw\mordomocla
+w\node_modules\ts-node\src\index.t
+s:1433:41)
+    at Module.m._compile (C:\Users
+\marke\PythonScripts\Pos_UFG\Aula_
+01_Sandeco\AgenteSkillClaw\mordomo
+claw\node_modules\ts-node\src\inde
+x.ts:1617:30)
+    at node:internal/modules/cjs/l
+oader:1893:10
+    at Object.require.extensions.<
+computed> [as .ts] (C:\Users\marke
+\PythonScripts\Pos_UFG\Aula_01_San
+deco\AgenteSkillClaw\mordomoclaw\n
+ode_modules\ts-node\src\index.ts:1
+621:12)
+    at Module.load (node:internal/
+modules/cjs/loader:1480:32)
+    at Module._load (node:internal
+/modules/cjs/loader:1299:12)
+    at TracingChannel.traceSync 
+(node:diagnostics_channel:328:14) 
+{
+  diagnosticCodes: [ 7016 ]
+}

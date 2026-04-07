@@ -1,0 +1,91 @@
+﻿node.exe : C:\Users\marke\App
+Data\Local\npm-cache\_npx\1bf
+7c3c15bf47d04\node_modules\ts
+-node\src\index.ts:859
+No linha:1 caractere:1
++ & "C:\Program 
+Files\nodejs/node.exe" "C:\Us
+ers\marke\AppData\Roaming\ 
+...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~
+    + CategoryInfo           
+   : NotSpecified: (C:\User  
+  s\marke\...rc\index.ts:8   
+ 59:String) [], RemoteExc    
+eption
+    + FullyQualifiedErrorId  
+   : NativeCommandError
+ 
+    return new 
+TSError(diagnosticText, 
+diagnosticCodes, 
+diagnostics);
+           ^
+TSError: Ô¿» Unable to 
+compile TypeScript:
+scripts/create_first_member.t
+s(3,20): error TS2307: 
+Cannot find module 'dotenv' 
+or its corresponding type 
+declarations.
+scripts/create_first_member.t
+s(4,18): error TS2307: 
+Cannot find module 'path' or 
+its corresponding type 
+declarations.
+scripts/create_first_member.t
+s(19,29): error TS2580: 
+Cannot find name 'process'. 
+Do you need to install type 
+definitions for node? Try 
+`npm i --save-dev 
+@types/node`.
+
+    at createTSError (C:\User
+s\marke\AppData\Local\npm-cac
+he\_npx\1bf7c3c15bf47d04\node
+_modules\ts-node\src\index.ts
+:859:12)
+    at reportTSError (C:\User
+s\marke\AppData\Local\npm-cac
+he\_npx\1bf7c3c15bf47d04\node
+_modules\ts-node\src\index.ts
+:863:19)
+    at getOutput (C:\Users\ma
+rke\AppData\Local\npm-cache\_
+npx\1bf7c3c15bf47d04\node_mod
+ules\ts-node\src\index.ts:107
+7:36)
+    at Object.compile (C:\Use
+rs\marke\AppData\Local\npm-ca
+che\_npx\1bf7c3c15bf47d04\nod
+e_modules\ts-node\src\index.t
+s:1433:41)
+    at Module.m._compile (C:\
+Users\marke\AppData\Local\npm
+-cache\_npx\1bf7c3c15bf47d04\
+node_modules\ts-node\src\inde
+x.ts:1617:30)
+    at node:internal/modules/
+cjs/loader:1893:10
+    at Object.require.extensi
+ons.<computed> [as .ts] (C:\U
+sers\marke\AppData\Local\npm-
+cache\_npx\1bf7c3c15bf47d04\n
+ode_modules\ts-node\src\index
+.ts:1621:12)
+    at Module.load (node:inte
+rnal/modules/cjs/loader:1480:
+32)
+    at Module._load (node:int
+ernal/modules/cjs/loader:1299
+:12)
+    at 
+TracingChannel.traceSync (nod
+e:diagnostics_channel:328:14)
+ {
+  diagnosticCodes: [ 2307, 
+2307, 2580 ]
+}
