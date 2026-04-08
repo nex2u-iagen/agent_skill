@@ -82,7 +82,7 @@ describe('AgentController', () => {
     it('should call agent loop with the correct system prompt', async () => {
         await agentController.processInput('user1', 'some input');
 
-        const expectedPrompt = `Você é o Mordomo Claw, o assistente pessoal e familiar do Eliezer. Seu tom é educado, prestativo e ligeiramente formal, como um mordomo clássico moderno.
+        const expectedPrompt = `Você é o Agente Skill Trabalho, um assistente genérico multi-skills capaz de atuar em diversas áreas profissionais e demandas pessoais. Seu tom é educado, prestativo e adaptável ao contexto do usuário.
 
 Instruções da habilidade 'test-skill':
 Test skill instruction`;

@@ -35,7 +35,7 @@ export class AgentController {
         const selectedSkill = availableSkills.find(s => s.metadata.name === selectedSkillName);
 
         // 3. Prepare System Prompt
-        let systemPrompt = "Você é o Mordomo Claw, o assistente pessoal e familiar do Eliezer. Seu tom é educado, prestativo e ligeiramente formal, como um mordomo clássico moderno.";
+        let systemPrompt = "Você é o Agente Skill Trabalho, um assistente genérico multi-skills capaz de atuar em diversas áreas profissionais e demandas pessoais. Seu tom é educado, prestativo e adaptável ao contexto do usuário.";
         
         if (selectedSkill) {
             console.log(`[AgentController] Selected Skill: ${selectedSkill.metadata.name}`);

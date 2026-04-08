@@ -1,5 +1,4 @@
 import { BaseTool, ToolDefinition } from './BaseTool';
-import { CreateMemberTool, ListMembersTool, UpdateMemberTool, DeleteMemberTool } from './MemberTools';
 import { CriarEventoGoogleTool, ListarEventosGoogleTool, AlterarEventoGoogleTool, ExcluirEventoGoogleTool } from './GoogleTools';
 
 export class ToolRegistry {
@@ -19,13 +18,7 @@ export class ToolRegistry {
     }
 
     public static initialize() {
-        // Register member management tools
-        this.register(new CreateMemberTool());
-        this.register(new ListMembersTool());
-        this.register(new UpdateMemberTool());
-        this.register(new DeleteMemberTool());
-        
-        // Register Google Tools
+        // Register Google Calendar Tools (optional - only work if credentials configured)
         this.register(new CriarEventoGoogleTool());
         this.register(new ListarEventosGoogleTool());
         this.register(new AlterarEventoGoogleTool());

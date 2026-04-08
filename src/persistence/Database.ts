@@ -12,7 +12,7 @@ export class Database {
 
     public static getInstance(): SqliteDatabase {
         if (!Database.instance) {
-            const dbPath = process.env.DB_PATH || path.join(process.cwd(), 'data', 'mordomoClaw.sqlite');
+            const dbPath = process.env.DB_PATH || path.join(process.cwd(), 'data', 'Agente_Skill_Trabalho.sqlite');
             const dataDir = path.dirname(dbPath);
 
             if (!fs.existsSync(dataDir)) {
@@ -51,19 +51,6 @@ export class Database {
             )
         `);
 
-        // Table for members (family members)
-        Database.instance.exec(`
-            CREATE TABLE IF NOT EXISTS members (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                telegram_id TEXT UNIQUE,
-                name TEXT NOT NULL,
-                role TEXT, -- e.g., Father, Mother, Child
-                is_admin BOOLEAN DEFAULT 0,
-                google_calendar_id TEXT,
-                created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-            )
-        `);
-
         // Table for sent notifications to avoid duplicates
         Database.instance.exec(`
             CREATE TABLE IF NOT EXISTS sent_notifications (
@@ -74,13 +61,5 @@ export class Database {
                 UNIQUE(event_id, notification_type)
             )
         `);
-
-        // Migration: add google_calendar_id column if it doesn't exist
-        try {
-            Database.instance.exec(`ALTER TABLE members ADD COLUMN google_calendar_id TEXT`);
-            console.log('[Database] Migrated table members: added google_calendar_id');
-        } catch (e: any) {
-            // Ignora se a coluna já existir (o erro do SQLite dirá 'duplicate column name')
-        }
     }
 }

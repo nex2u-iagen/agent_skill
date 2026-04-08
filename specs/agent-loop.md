@@ -2,14 +2,14 @@
 
 **Versão:** 1.0
 **Status:** Aprovada
-**Autor:** nex2u.ia - Eliezer
+**Autor:** Agente_Skill_Trabalho
 **Data:** 22/03/2026
 
 ---
 
 ## 1. Resumo
 
-O **Agent Loop** é a engrenagem central do mordomoClaw. Ele implementa o padrão ReAct (Reasoning and Acting). É o módulo onde uma ação bruta entra, é submetida ao LLM base (Thought), uma ou mais ferramentas são chamadas (Action+Observation), até um veredito de resposta final ser chegado, repetindo em loop limitado de iterações para evitar impasses de contexto infinito.
+O **Agent Loop** é a engrenagem central do Agente_Skill_Trabalho. Ele implementa o padrão ReAct (Reasoning and Acting). É o módulo onde uma ação bruta entra, é submetida ao LLM base (Thought), uma ou mais ferramentas são chamadas (Action+Observation), até um veredito de resposta final ser chegado, repetindo em loop limitado de iterações para evitar impasses de contexto infinito.
 
 ---
 

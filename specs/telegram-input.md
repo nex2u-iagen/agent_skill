@@ -2,7 +2,7 @@
 
 **Versão:** 1.1
 **Status:** Em Revisão
-**Autor:** Eliezer
+**Autor:** Agente_Skill_Trabalho
 **Data:** 23/03/2026
 
 ---
@@ -55,7 +55,7 @@ A lib Grammy suporta streaming de arquivos anexos por `getFile()`. O Nodejs lida
 
 ## 5. Usuários e Personas
 
-**Usuario:** Sandeco interagindo do smartphone para a máquina desktop local através de uma DM do Bot do Telegram, mandando comandos de voz dirigindo o carro pedindo para o agente agir e exigindo receber a resposta de volta em formato de voz (TTS Thalita) para audição rápida sem contato visual no app.
+**Usuario:** Usuário interagindo do smartphone para a máquina desktop local através de uma DM do Bot do Telegram, mandando comandos de voz e exigindo receber a resposta de volta em formato de voz (TTS) para audição rápida sem contato visual no app.
 
 ---
 
@@ -152,7 +152,7 @@ A estrutura do `AudioHandler` acoplada ao Bot Core ficarão em produção local 
 
 ## 14. Open Questions
 
-- Como acionar o Whisper local a partir do backend Node.js (se SandecoClaw ainda for Node). *Decisão pendente: usar bridge FFI, ou Child Process nativo na máquina.*
+- Como acionar o Whisper local a partir do backend Node.js (se Agente_Skill_Trabalho ainda for Node). *Decisão pendente: usar bridge FFI, ou Child Process nativo na máquina.*
 - Precisaremos de um `ffmpeg` standalone local para converter aúdio em formato compatível com o whisper ou o próprio whisper local processa os M4A, OPUS/OGG (nativos do Telegram)? *Assume-se que whisper lida com OGG/OPUS baseados em FFMEPG instalado na máquina da Host.*
 
 ---

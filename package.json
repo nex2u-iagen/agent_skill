@@ -1,14 +1,15 @@
 {
-  "name": "mordomoclaw",
+  "name": "agente-skill-trabalho",
   "version": "1.0.0",
-  "description": "Assistente familiar local",
+  "description": "Agente genérico multi-skills para áreas profissionais e demandas pessoais",
   "main": "dist/index.js",
   "scripts": {
     "start": "node dist/index.js",
     "dev": "nodemon --watch src --ext ts --exec ts-node src/index.ts",
     "build": "tsc",
     "test": "jest",
-    "sync-members": "ts-node scripts/sync_members.ts"
+    "sync-members": "ts-node scripts/sync_members.ts",
+    "reset-db": "ts-node scripts/reset-db.ts"
   },
   "dependencies": {
     "@types/node-cron": "^3.0.11",

@@ -99,7 +99,7 @@ export class OpenRouterProvider implements ILLMProvider {
             baseURL: "https://openrouter.ai/api/v1",
             defaultHeaders: {
                 "HTTP-Referer": "http://localhost:3000",
-                "X-Title": "Mordomo Claw"
+                "X-Title": "Agente Skill Trabalho"
             }
         });
     }

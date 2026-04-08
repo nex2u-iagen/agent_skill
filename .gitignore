@@ -19,5 +19,5 @@ lerna-debug.log*
 Thumbs.db
 
 # Google Service Account Credentials
-mordomoclaw-058fd77aead1.json
+*.json
 *credentials*.json

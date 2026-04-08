@@ -2,14 +2,14 @@
 
 **Versão:** 1.0
 **Status:** Aprovada
-**Autor:** nex2u.ia - Eliezer
+**Autor:** Agente_Skill_Trabalho
 **Data:** 22/03/2026
 
 ---
 
 ## 1. Resumo
 
-A arquitetura de injeção de habilidades (`Skills`) possibilita que novas capacidades, prompts engessados ou guias instrucionais complexos se integrem dinamicamente ao agente sem requerer nenhuma reinicialização (deploy zero). Através deste sistema (Loader -> Router -> Executor), cada subpasta vira uma Action especializada reconhecida por um LLM. O mordomoClaw irá ler o diretório e adicionar a skill ao sistema automaticamente.
+A arquitetura de injeção de habilidades (`Skills`) possibilita que novas capacidades, prompts engessados ou guias instrucionais complexos se integrem dinamicamente ao agente sem requerer nenhuma reinicialização (deploy zero). Através deste sistema (Loader -> Router -> Executor), cada subpasta vira uma Action especializada reconhecida por um LLM. O Agente_Skill_Trabalho irá ler o diretório e adicionar a skill ao sistema automaticamente.
 
 ---
 
@@ -22,7 +22,7 @@ Adicionar habilidades num chatbot em nível de código causa quebras de estabili
 Se o LLM receber instruções enormes fixas no seu Master Prompt, além de "queimar dinheiro" com a Context Window cheia em conversas bobas (ex: "Oi"), ele sofre de perda de atenção nas diretivas essenciais. 
 
 **Por que agora:**
-A separação num formato plugin (pasta .agents) modulariza tudo e deixa o Router LLM usar um prompt barato para dizer "Sim, devo focar a Skill de Github" só quando o usuário pedir pra ver repósitorios. O mordomoClaw irá ler o diretório e adicionar a skill ao sistema automaticamente.
+A separação num formato plugin (pasta .agents) modulariza tudo e deixa o Router LLM usar um prompt barato para dizer "Sim, devo focar a Skill de Github" só quando o usuário pedir pra ver repósitorios. O Agente_Skill_Trabalho irá ler o diretório e adicionar a skill ao sistema automaticamente.
 
 ---
 
@@ -48,7 +48,7 @@ A separação num formato plugin (pasta .agents) modulariza tudo e deixa o Route
 
 ## 5. Usuários e Personas
 
-**Usuario Primario:** Eliezer, através da pasta Filesystem para inserir diretórios customizados com `.md`, e o bot interno (Loader e Executor) para lidar nos backgrounds da arquitetura.
+**Usuario Primario:** Administrador do sistema, através da pasta Filesystem para inserir diretórios customizados com `.md`, e o bot interno (Loader e Executor) para lidar nos backgrounds da arquitetura.
 
 ---
 

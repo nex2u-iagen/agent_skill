@@ -1,16 +1,16 @@
-# Spec: PRD — SandecoClaw Core
+# Spec: PRD — Agente_Skill_Trabalho Core
 
 **Versão:** 1.0
 **Status:** Aprovada
-**Autor:** nex2u.ia - Eliezer
+**Autor:** Agente_Skill_Trabalho
 **Data:** 22/03/2026
-**Reviewers:** Sandeco
+**Reviewers:** Administrador
 
 ---
 
 ## 1. Resumo
 
-O SandeClaw é um agente pessoal de Inteligência Artificial para operar 100% localmente no desktop do usuário. Ele recebe comandos exclusivamente pelo Telegram, processa-os através de um pipeline que suporta múltiplos LLMs dinamicamente, e tem acesso persistente à memória em SQLite.
+O Agente_Skill_Trabalho é um agente genérico de Inteligência Artificial para operar 100% localmente no desktop do usuário. Ele recebe comandos exclusivamente pelo Telegram, processa-os através de um pipeline que suporta múltiplos LLMs dinamicamente, e tem acesso persistente à memória em SQLite.
 
 ---
 
@@ -52,13 +52,13 @@ A ascensão de LLMs super eficientes (Gemini 2.5/3.0+, DeepSeek, groq e ollama) 
 
 ## 5. Usuários e Personas
 
-**Usuário primário:** Eliezer (proprietário), acessando via dispositivo móvel ou desktop via cliente Telegram, utilizando IDs em whitelist restrita.
+**Usuário primário:** Usuário administrador, acessando via dispositivo móvel ou desktop via cliente Telegram, utilizando IDs em whitelist restrita.
 
 **Jornada atual (sem a feature):**
 O usuário tem que gerir manualmente as APIs ou logar em múltiplas abas web (ChatGPT, Gemini) para acionar "skills" em blocos de texto independentes sem integrações de arquivos no próprio SO local.
 
 **Jornada futura (com a feature):**
-O usuário envia um chat no Telegram, o mordomoClaw roda local em background num terminal, chama LLMs, lê Skills em pastas locais, aciona ferramentas e responde no mesmo chat de forma orgânica.
+O usuário envia um chat no Telegram, o Agente_Skill_Trabalho roda local em background num terminal, chama LLMs, lê Skills em pastas locais, aciona ferramentas e responde no mesmo chat de forma orgânica.
 
 ---
 

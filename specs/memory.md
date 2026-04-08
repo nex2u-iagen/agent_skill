@@ -2,14 +2,14 @@
 
 **Versão:** 1.0
 **Status:** Aprovada
-**Autor:** nex2u.ia - Eliezer
+**Autor:** Agente_Skill_Trabalho
 **Data:** 22/03/2026
 
 ---
 
 ## 1. Resumo
 
-O módulo de persistência de estado do mordomoClaw gerencia tanto as conversas de longo prazo em banco de dados SQLite (`better-sqlite3`) quanto atua como manager da janela de contexto para impedir que o limite maximo do envelope de tokens da IA (Context Window) estoure.
+O módulo de persistência de estado do Agente_Skill_Trabalho gerencia tanto as conversas de longo prazo em banco de dados SQLite (`better-sqlite3`) quanto atua como manager da janela de contexto para impedir que o limite maximo do envelope de tokens da IA (Context Window) estoure.
 
 ---
 
@@ -127,7 +127,7 @@ Sem foreign keys restritas ativadas com pragma foreign_keys=ON pra priorizar ins
 
 ## 12. Segurança e Privacidade
 
-- **Arquivos DB Sensíveis:** O `mordomoClaw.db` jamais pode ir pro Git (Adicionar no `.gitignore` /data).
+- **Arquivos DB Sensíveis:** O `Agente_Skill_Trabalho.db` jamais pode ir pro Git (Adicionar no `.gitignore` /data).
 - **Sem senhas cruas no prompt:** O DB grava as msgs do usuário. Não logaremos APIs ali como System Prompts secretos pra evitar persistencia indevida.
 
 ---
