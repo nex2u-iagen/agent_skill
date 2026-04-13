@@ -42,7 +42,32 @@ if (!fs.existsSync(tmpDir)) fs.mkdirSync(tmpDir);
 
 // Command Handlers
 bot.command('start', async (ctx) => {
-    await ctx.reply('Olá! Sou o Agente Skill Trabalho, seu assistente multi-skills. Como posso ajudá-lo hoje?');
+    await ctx.reply(
+        '👋 Olá! Sou o Agente Skill Trabalho, seu assistente multi-habilidades.\n\n' +
+        'Posso ajudar com diversas tipos de tarefas. Use /skills para ver todas as minhas habilidades!\n\n' +
+        'Como posso ajudá-lo hoje?'
+    );
+});
+
+bot.command('skills', async (ctx) => {
+    const skills = controller.getAvailableSkills();
+
+    if (skills.length === 0) {
+        await ctx.reply('⚠️ Nenhuma habilidade disponível no momento.');
+        return;
+    }
+
+    let message = '🎯 *Habilidades Disponíveis*\n\n';
+    message += `Total: *${skills.length}* skill(s)\n\n`;
+
+    skills.forEach((skill, index) => {
+        message += `*${index + 1}. ${skill.metadata.name}*\n`;
+        message += `_${skill.metadata.description}_\n\n`;
+    });
+
+    message += '💡 _Basta me enviar uma mensagem e eu selecionarei automaticamente a habilidade mais adequada!_';
+
+    await ctx.reply(message, { parse_mode: 'Markdown' });
 });
 
 // Generic Message Handler for all types
@@ -58,16 +83,16 @@ bot.on(['message:text', 'message:voice', 'message:audio', 'message:document'], a
         if (ctx.message.voice || ctx.message.audio) {
             const file = await ctx.getFile();
             tempFilePath = path.join(tmpDir, `${uuidv4()}${path.extname(file.file_path || '.ogg')}`);
-            
+
             await ctx.replyWithChatAction('record_voice');
             if (file.file_path) await downloadTelegramFile(file.file_path, tempFilePath);
-            
+
             console.log(`[Bot] Transcrevendo áudio de ${userName}...`);
             text = await audioHandler.transcribe(tempFilePath);
             metadata.requires_audio_reply = true;
             metadata.voice_id = 'pt-BR-ThalitaMultilingualNeural';
             console.log(`[Bot] Transcrição: ${text}`);
-        } 
+        }
         // --- Handle DOCUMENTS (PDF/MD) ---
         else if (ctx.message.document) {
             const fileName = ctx.message.document.file_name || '';
@@ -100,7 +125,7 @@ bot.on(['message:text', 'message:voice', 'message:audio', 'message:document'], a
         }
 
         console.log(`[Bot] Message received from ${userName}: ${text.substring(0, 100)}...`);
-        
+
         await ctx.replyWithChatAction('typing');
 
         const response = await controller.processInput(userId, text, metadata);

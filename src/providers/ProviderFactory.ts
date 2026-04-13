@@ -86,6 +86,42 @@ export class GroqProvider implements ILLMProvider {
     }
 }
 
+export class AnthropicProvider implements ILLMProvider {
+    private client: OpenAI;
+    private model: string;
+
+    constructor() {
+        this.model = process.env.ANTHROPIC_MODEL || "claude-sonnet-4-20250514";
+        this.client = new OpenAI({
+            apiKey: process.env.ANTHROPIC_API_KEY,
+            baseURL: "https://api.anthropic.com/v1/"
+        });
+    }
+
+    getName(): string { return 'Anthropic'; }
+
+    public async chat(messages: any[], tools?: any[]): Promise<LLMResponse> {
+        try {
+            const response = await this.client.chat.completions.create({
+                model: this.model,
+                messages,
+                tools: tools?.length ? tools.map(t => ({ type: 'function', function: t })) : undefined,
+                tool_choice: tools?.length ? 'auto' : undefined
+            });
+
+            const choice = response.choices[0];
+            return {
+                role: choice.message.role as 'assistant',
+                content: choice.message.content,
+                tool_calls: choice.message.tool_calls
+            };
+        } catch (error: any) {
+            console.error(`[AnthropicProvider] Error: ${error.message}`);
+            throw error;
+        }
+    }
+}
+
 export class OpenRouterProvider implements ILLMProvider {
     private client: OpenAI;
     private model: string;
@@ -138,10 +174,27 @@ export class FailoverProvider implements ILLMProvider {
             { name: 'groq', provider: new GroqProvider() }
         ];
 
-        // Add OpenRouter Slots if defined
-        if (process.env.OPENROUTER_MODEL_1) candidates.push({ name: 'openrouter-1', provider: new OpenRouterProvider(process.env.OPENROUTER_MODEL_1, 'OR-Slot1') });
-        if (process.env.OPENROUTER_MODEL_2) candidates.push({ name: 'openrouter-2', provider: new OpenRouterProvider(process.env.OPENROUTER_MODEL_2, 'OR-Slot2') });
-        if (process.env.OPENROUTER_MODEL_3) candidates.push({ name: 'openrouter-3', provider: new OpenRouterProvider(process.env.OPENROUTER_MODEL_3, 'OR-Slot3') });
+        // Add Anthropic if API key is properly configured
+        const anthropicKey = process.env.ANTHROPIC_API_KEY;
+        const isAnthropicConfigured = anthropicKey && anthropicKey !== 'sua_chave_anthropic' && anthropicKey.trim().length > 10;
+
+        if (isAnthropicConfigured) {
+            candidates.push({ name: 'anthropic', provider: new AnthropicProvider() });
+        } else {
+            console.log('[Failover] Anthropic não configurado (API key inválida ou ausente). Ignorado.');
+        }
+
+        // Add OpenRouter Slots only if API key is properly configured
+        const openRouterKey = process.env.OPENROUTER_API_KEY;
+        const isOpenRouterConfigured = openRouterKey && openRouterKey !== 'sua_chave_openrouter' && openRouterKey.trim().length > 10;
+
+        if (isOpenRouterConfigured) {
+            if (process.env.OPENROUTER_MODEL_1) candidates.push({ name: 'openrouter-1', provider: new OpenRouterProvider(process.env.OPENROUTER_MODEL_1, 'OR-Slot1') });
+            if (process.env.OPENROUTER_MODEL_2) candidates.push({ name: 'openrouter-2', provider: new OpenRouterProvider(process.env.OPENROUTER_MODEL_2, 'OR-Slot2') });
+            if (process.env.OPENROUTER_MODEL_3) candidates.push({ name: 'openrouter-3', provider: new OpenRouterProvider(process.env.OPENROUTER_MODEL_3, 'OR-Slot3') });
+        } else {
+            console.log('[Failover] OpenRouter não configurado (API key inválida ou ausente). Slots ignorados.');
+        }
 
         // Build a rotated list starting with the initial provider
         const startIndex = Math.max(0, candidates.findIndex(c => c.name === initialProviderName.toLowerCase()));

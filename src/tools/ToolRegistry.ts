@@ -1,5 +1,5 @@
 import { BaseTool, ToolDefinition } from './BaseTool';
-import { CriarEventoGoogleTool, ListarEventosGoogleTool, AlterarEventoGoogleTool, ExcluirEventoGoogleTool } from './GoogleTools';
+import { SkillListTool } from './SkillListTool';
 
 export class ToolRegistry {
     private static tools: Map<string, BaseTool> = new Map();
@@ -18,10 +18,7 @@ export class ToolRegistry {
     }
 
     public static initialize() {
-        // Register Google Calendar Tools (optional - only work if credentials configured)
-        this.register(new CriarEventoGoogleTool());
-        this.register(new ListarEventosGoogleTool());
-        this.register(new AlterarEventoGoogleTool());
-        this.register(new ExcluirEventoGoogleTool());
+        // Register Skill List Tool
+        this.register(new SkillListTool());
     }
 }
